@@ -10,7 +10,6 @@ class SubmitButton extends StatelessWidget {
     this.textColor,
     this.svgPicture,
     this.buttonHeight,
-    required this.theme,
   });
 
   final String title;
@@ -18,7 +17,7 @@ class SubmitButton extends StatelessWidget {
   final Color buttonColor;
   final Color? textColor;
   final Widget? svgPicture;
-  final ThemeData theme;
+
   final String? fontFamily;
   final double? buttonHeight;
 
@@ -30,6 +29,7 @@ class SubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     // Cache theme text style to avoid repeated access
     final baseTextStyle = theme.textTheme.bodyMedium!;
 
