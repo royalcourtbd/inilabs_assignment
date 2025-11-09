@@ -9,6 +9,7 @@ This application demonstrates a clean architecture approach to building a Flutte
 ## ✨ Features
 
 ### Core Features
+
 - **User Search**: Search for any GitHub user by username
 - **Repository Listing**: View all public repositories of a searched user
 - **Repository Details**: Comprehensive details page showing:
@@ -20,6 +21,7 @@ This application demonstrates a clean architecture approach to building a Flutte
   - Status badges (fork, archived, template, etc.)
 
 ### UI/UX Features
+
 - **Dual View Modes**: Switch between List and Grid view for repositories
 - **Advanced Filtering**: Filter repositories by:
   - Name (alphabetical)
@@ -99,18 +101,21 @@ lib/
 ### Architectural Layers
 
 #### 1. **Presentation Layer**
+
 - **Presenters**: Manage UI state and business logic coordination
 - **UI**: Flutter widgets for rendering
 - **UI State**: Immutable state classes
 - Uses GetX for state management and navigation
 
 #### 2. **Domain Layer**
+
 - **Entities**: Pure Dart business objects
 - **Use Cases**: Single-responsibility business logic units
 - **Repository Interfaces**: Contracts for data operations
 - Independent of frameworks and external dependencies
 
 #### 3. **Data Layer**
+
 - **Models**: JSON serializable data models
 - **Data Sources**: Remote API communication
 - **Repository Implementations**: Concrete implementations of domain contracts
@@ -119,6 +124,7 @@ lib/
 ## 🛠️ Technologies & Packages
 
 ### Core Dependencies
+
 - **flutter**: ^3.9.2 (SDK)
 - **get**: ^4.7.2 - State management and navigation
 - **get_it**: ^9.0.5 - Service locator for dependency injection
@@ -127,41 +133,49 @@ lib/
 - **equatable**: ^2.0.7 - Value equality for entities
 
 ### UI & UX
+
 - **responsive_sizer**: ^3.3.1 - Responsive design
 - **flutter_svg**: ^2.2.2 - SVG rendering
 - **intl**: ^0.20.2 - Date formatting
 
 ### Utilities
+
 - **url_launcher**: ^6.3.2 - Open external URLs
 - **talker_logger**: ^5.0.2 - Advanced logging
 
 ### Dev Dependencies
+
 - **flutter_lints**: ^5.0.0 - Linting rules
 - **change_app_package_name**: ^1.5.0 - Package name management
 
 ## 🎨 Design Patterns
 
 ### 1. **Service Locator Pattern**
+
 - Centralized dependency management using GetIt
 - Lazy and singleton registrations
 - Easy to mock for testing
 
 ### 2. **Repository Pattern**
+
 - Abstraction between data sources and business logic
 - Clean separation of concerns
 - Easy to swap implementations
 
 ### 3. **Use Case Pattern**
+
 - Single Responsibility Principle
 - Encapsulated business logic
 - Reusable and testable
 
 ### 4. **Presenter Pattern (MVP-like)**
+
 - Separates UI logic from presentation logic
 - Testable presentation layer
 - Reactive state updates with Rx
 
 ### 5. **Result/Either Pattern**
+
 - Type-safe error handling
 - No exceptions for flow control
 - Explicit success/failure handling
@@ -169,6 +183,7 @@ lib/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Flutter SDK: ^3.9.2
 - Dart SDK: ^3.9.2
 - iOS/Android/Web/Desktop development setup
@@ -176,12 +191,14 @@ lib/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/royalcourtbd/inilabs_assignment.git
    cd inilabs_assignment
    ```
 
 2. **Install dependencies**
+
    ```bash
    flutter pub get
    ```
@@ -194,15 +211,18 @@ lib/
 ### Platform-Specific Setup
 
 #### Android
+
 - Minimum SDK: 21
 - Target SDK: Latest
 - Kotlin version: 1.9.0
 
 #### iOS
+
 - Minimum iOS version: 12.0
 - Swift 5.0+
 
 #### Web
+
 - Runs on all modern browsers
 - No additional setup required
 
@@ -220,14 +240,18 @@ lib/
 ## 🔧 Configuration
 
 ### API Configuration
+
 The app uses GitHub's public API (no authentication required for basic operations):
+
 - Base URL: `https://api.github.com`
 - Endpoints:
   - User profile: `/users/{username}`
   - User repositories: `/users/{username}/repos`
 
 ### Theme Configuration
+
 Modify themes in `lib/core/config/app_theme.dart`:
+
 - Light theme customization
 - Dark theme customization
 - Material 3 design system
@@ -235,24 +259,28 @@ Modify themes in `lib/core/config/app_theme.dart`:
 ## 📊 Key Features Implementation
 
 ### Error Handling
+
 - Centralized error message handler
 - User-friendly error messages
 - Network error detection
 - Null safety throughout
 
 ### State Management
+
 - Reactive state updates with GetX
 - Immutable state classes
 - Clean state transitions
 - Loading states management
 
 ### Network Layer
+
 - Dio interceptors for logging
 - Request/Response interceptors
 - Error handling middleware
 - Timeout configuration (30s)
 
 ### Dependency Injection
+
 - Service locator pattern
 - Lazy initialization
 - Singleton services
@@ -261,11 +289,13 @@ Modify themes in `lib/core/config/app_theme.dart`:
 ## 🧪 Testing
 
 The project structure supports easy testing:
+
 - **Unit Tests**: Test use cases and business logic
 - **Widget Tests**: Test UI components
 - **Integration Tests**: Test complete user flows
 
 Run tests:
+
 ```bash
 flutter test
 ```
@@ -282,6 +312,7 @@ flutter test
 ## 🎯 Code Quality
 
 ### Best Practices
+
 - Clean Architecture principles
 - SOLID principles
 - DRY (Don't Repeat Yourself)
@@ -290,6 +321,7 @@ flutter test
 - Type safety with null safety
 
 ### Code Style
+
 - Flutter lints enabled
 - Consistent naming conventions
 - Comprehensive comments
@@ -313,6 +345,7 @@ flutter test
 ## 🤝 Contributing
 
 This is an assignment project, but suggestions are welcome:
+
 1. Fork the repository
 2. Create a feature branch
 3. Commit your changes
@@ -326,6 +359,7 @@ This project is created as an assignment for INILabs.
 ## 👨‍💻 Developer
 
 **Sayed**
+
 - GitHub: [@royalcourtbd](https://github.com/royalcourtbd)
 
 ## 🙏 Acknowledgments
@@ -337,6 +371,7 @@ This project is created as an assignment for INILabs.
 ## 📞 Contact
 
 For any queries regarding this assignment:
+
 - Repository: [inilabs_assignment](https://github.com/royalcourtbd/inilabs_assignment)
 
 ---
