@@ -5,6 +5,7 @@ import 'package:inilabs_assignment/core/config/app_theme.dart';
 import 'package:inilabs_assignment/core/di/service_locator.dart';
 import 'package:inilabs_assignment/core/services/theme_service.dart';
 import 'package:inilabs_assignment/features/initial/presentation/ui/initial_page.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class InilabsApp extends StatelessWidget {
   const InilabsApp({super.key});
@@ -18,22 +19,26 @@ class InilabsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeService themeService = locate<ThemeService>();
-    return GetMaterialApp(
-      navigatorKey: navigatorKey,
-      builder: (context, child) {
-        return Overlay(
-          initialEntries: [OverlayEntry(builder: (context) => child!)],
+    return ResponsiveSizer(
+      builder: (context, orientation, deviceType) {
+        return GetMaterialApp(
+          navigatorKey: navigatorKey,
+          builder: (context, child) {
+            return Overlay(
+              initialEntries: [OverlayEntry(builder: (context) => child!)],
+            );
+          },
+          onInit: () => AppScreen.setUp(context),
+          onReady: () => AppScreen.setUp(context),
+          debugShowCheckedModeBanner: false,
+
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: themeService.themeMode,
+          title: 'Inilabs Assignment',
+          home: InitialPage(),
         );
       },
-      onInit: () => AppScreen.setUp(context),
-      onReady: () => AppScreen.setUp(context),
-      debugShowCheckedModeBanner: false,
-
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: themeService.themeMode,
-      title: 'Inilabs Assignment',
-      home: InitialPage(),
     );
   }
 }
