@@ -31,6 +31,12 @@ class FilterChipWidget extends StatelessWidget {
         }
       },
       selectedColor: theme.primaryColor.withOpacityPercent(20),
+      labelStyle: theme.textTheme.bodyMedium?.copyWith(
+        color: isSelected
+            ? theme.primaryColor
+            : theme.textTheme.bodyMedium?.color,
+        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+      ),
       checkmarkColor: theme.primaryColor,
     );
   }
