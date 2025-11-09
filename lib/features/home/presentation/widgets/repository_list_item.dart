@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:inilabs_assignment/core/static/ui_const.dart';
 import 'package:inilabs_assignment/core/utility/color_utility.dart';
+import 'package:inilabs_assignment/core/utility/extensions.dart';
 import 'package:inilabs_assignment/features/home/domain/entities/repository_entity.dart';
+import 'package:inilabs_assignment/features/repository_details/presentation/ui/repository_details_page.dart';
 
 class RepositoryListItem extends StatelessWidget {
   final RepositoryEntity repository;
@@ -14,80 +16,86 @@ class RepositoryListItem extends StatelessWidget {
     return Card(
       margin: padding12,
       elevation: 2,
-      child: Padding(
-        padding: padding16,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              repository.name,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            gapH8,
-
-            // Description
-            if (repository.description != null &&
-                repository.description!.isNotEmpty)
+      child: InkWell(
+        onTap: () => context.navigatorPush(
+          RepositoryDetailsPage(repository: repository),
+        ),
+        borderRadius: radius8,
+        child: Padding(
+          padding: padding16,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Text(
-                repository.description!,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: Colors.grey[600],
+                repository.name,
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
               ),
-            gapH12,
+              gapH8,
 
-            // Stats row
-            Row(
-              children: [
-                // Language
-                if (repository.language != null)
+              // Description
+              if (repository.description != null &&
+                  repository.description!.isNotEmpty)
+                Text(
+                  repository.description!,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: Colors.grey[600],
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              gapH12,
+
+              // Stats row
+              Row(
+                children: [
+                  // Language
+                  if (repository.language != null)
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.circle,
+                          size: 12,
+                          color: getLanguageColor(repository.language!),
+                        ),
+                        gapW4,
+                        Text(
+                          repository.language!,
+                          style: theme.textTheme.bodySmall,
+                        ),
+                        gapW16,
+                      ],
+                    ),
+
+                  // Stars
                   Row(
                     children: [
-                      Icon(
-                        Icons.circle,
-                        size: 12,
-                        color: getLanguageColor(repository.language!),
-                      ),
+                      Icon(Icons.star, size: 16, color: Colors.amber),
                       gapW4,
                       Text(
-                        repository.language!,
+                        repository.stargazersCount.toString(),
                         style: theme.textTheme.bodySmall,
                       ),
                       gapW16,
                     ],
                   ),
 
-                // Stars
-                Row(
-                  children: [
-                    Icon(Icons.star, size: 16, color: Colors.amber),
-                    gapW4,
-                    Text(
-                      repository.stargazersCount.toString(),
-                      style: theme.textTheme.bodySmall,
-                    ),
-                    gapW16,
-                  ],
-                ),
-
-                // Forks
-                Row(
-                  children: [
-                    Icon(Icons.fork_right, size: 16, color: Colors.grey[600]),
-                    gapW4,
-                    Text(
-                      repository.forksCount.toString(),
-                      style: theme.textTheme.bodySmall,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+                  // Forks
+                  Row(
+                    children: [
+                      Icon(Icons.fork_right, size: 16, color: Colors.grey[600]),
+                      gapW4,
+                      Text(
+                        repository.forksCount.toString(),
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
