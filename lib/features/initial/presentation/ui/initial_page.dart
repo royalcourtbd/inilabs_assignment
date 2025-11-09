@@ -46,7 +46,7 @@ class InitialPage extends StatelessWidget {
                   title: 'Search User',
                   textColor: Colors.white,
                   buttonColor: Theme.of(context).primaryColor,
-                  onTap: () => initialPagePresenter.searchUser(),
+                  onTap: () => initialPagePresenter.searchUser(context),
                 ),
               ],
             ),

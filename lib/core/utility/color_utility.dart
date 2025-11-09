@@ -100,3 +100,36 @@ String Function(Color) getHexFromColor = (Color color) {
       }) ??
       "#FF66BB6A";
 };
+
+/// Returns the color associated with a programming language.
+///
+/// This function takes a [language] string and returns a [Color] that
+/// represents that programming language. If the language is not recognized,
+/// it returns grey color.
+///
+/// Example usage:
+///
+/// ```dart
+/// Color dartColor = getLanguageColor('Dart'); // Returns Colors.blue
+/// Color unknownColor = getLanguageColor('Unknown'); // Returns Colors.grey
+/// ```
+Color getLanguageColor(String language) {
+  switch (language.toLowerCase()) {
+    case 'dart':
+      return Colors.blue;
+    case 'kotlin':
+      return Colors.purple;
+    case 'swift':
+      return Colors.orange;
+    case 'java':
+      return Colors.red;
+    case 'javascript':
+      return Colors.yellow;
+    case 'typescript':
+      return Colors.blue[700]!;
+    case 'python':
+      return Colors.green;
+    default:
+      return Colors.grey;
+  }
+}

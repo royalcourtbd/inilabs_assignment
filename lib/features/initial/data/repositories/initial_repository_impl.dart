@@ -5,8 +5,6 @@ import 'package:inilabs_assignment/features/initial/data/datasource/initial_remo
 import 'package:inilabs_assignment/features/initial/domain/entities/user_entity.dart';
 import 'package:inilabs_assignment/features/initial/domain/repositories/initial_repository.dart';
 
-/// Implementation of InitialRepository
-/// Handles data operations and error handling
 class InitialRepositoryImpl implements InitialRepository {
   final InitialRemoteDataSource _remoteDataSource;
   final ErrorMessageHandler _errorMessageHandler;
@@ -16,7 +14,6 @@ class InitialRepositoryImpl implements InitialRepository {
   @override
   Future<Result<UserEntity>> getUserProfile(String userName) async {
     try {
-      // Using extension method for additional error safety
       final userModel = await this.catchAndReturnFuture(
         () => _remoteDataSource.getUserProfile(userName),
       );

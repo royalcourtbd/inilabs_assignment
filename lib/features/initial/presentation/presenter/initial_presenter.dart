@@ -1,6 +1,8 @@
 import 'package:inilabs_assignment/core/base/base_export.dart';
+import 'package:inilabs_assignment/core/utility/extensions.dart';
 import 'package:inilabs_assignment/core/utility/navigation_helpers.dart';
 import 'package:inilabs_assignment/core/utility/trial_utility.dart';
+import 'package:inilabs_assignment/features/home/presentation/ui/home_page.dart';
 import 'package:inilabs_assignment/features/initial/domain/usecase/get_user_profile_usecase.dart';
 import 'package:inilabs_assignment/features/initial/presentation/presenter/initial_ui_state.dart';
 import 'package:inilabs_assignment/shared/services/theme/theme_presenter.dart';
@@ -20,7 +22,7 @@ class InitialPresenter extends BasePresenter<InitialUiState> {
 
   ThemePresenter get themePresenter => _themePresenter;
 
-  Future<void> searchUser() async {
+  Future<void> searchUser(BuildContext context) async {
     await catchFutureOrVoid(() async {
       final userName = textEditingController.text.trim();
 
@@ -46,6 +48,10 @@ class InitialPresenter extends BasePresenter<InitialUiState> {
             isLoading: false,
           );
           await addUserMessage('User found: ${userData.login}');
+
+          // Navigate to HomePage
+          if (!context.mounted) return;
+          context.navigatorPush(HomePage(userName: userData.login));
         },
       );
     });

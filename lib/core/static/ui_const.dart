@@ -23,6 +23,7 @@ SizedBox gapH50 = SizedBox(height: fiftyPx);
 SizedBox gapH75 = SizedBox(height: seventyFivePx);
 
 SizedBox gapW5 = SizedBox(width: fivePx);
+SizedBox gapW4 = SizedBox(width: fourPx);
 SizedBox gapW8 = SizedBox(width: eightPx);
 SizedBox gapW10 = SizedBox(width: tenPx);
 SizedBox gapW12 = SizedBox(width: twelvePx);
@@ -44,6 +45,7 @@ EdgeInsets padding10 = EdgeInsets.all(tenPx);
 EdgeInsets padding12 = EdgeInsets.all(twelvePx);
 EdgeInsets padding14 = EdgeInsets.all(fourteenPx);
 EdgeInsets padding15 = EdgeInsets.all(fifteenPx);
+EdgeInsets padding16 = EdgeInsets.all(sixteenPx);
 EdgeInsets padding18 = EdgeInsets.all(eighteenPx);
 EdgeInsets padding20 = EdgeInsets.all(twentyPx);
 
