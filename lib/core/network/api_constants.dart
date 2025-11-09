@@ -14,7 +14,7 @@ class ApiConstants {
   static const String paramApiKey = "api_key";
 
   // Base URLs
-  static const String githubBaseUrl = "https://api.github.com";
+  static const String githubBaseUrl = "https://api.github.com/";
 
   // Response messages
   static const String noInternetMessage = "No Internet Connection.";

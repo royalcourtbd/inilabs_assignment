@@ -1,21 +1,35 @@
 import 'package:inilabs_assignment/core/base/base_ui_state.dart';
+import 'package:inilabs_assignment/features/initial/domain/entities/user_entity.dart';
 
 class InitialUiState extends BaseUiState {
-  const InitialUiState({required super.isLoading, required super.userMessage});
+  final UserEntity? userData;
+
+  const InitialUiState({
+    required super.isLoading,
+    required super.userMessage,
+    this.userData,
+  });
 
   factory InitialUiState.empty() {
-    return InitialUiState(isLoading: false, userMessage: '');
+    return const InitialUiState(
+      isLoading: false,
+      userMessage: '',
+      userData: null,
+    );
   }
 
   @override
-  List<Object?> get props => [isLoading, userMessage];
+  List<Object?> get props => [isLoading, userMessage, userData];
 
-  //Add more properties to the state
-
-  InitialUiState copyWith({bool? isLoading, String? userMessage}) {
+  InitialUiState copyWith({
+    bool? isLoading,
+    String? userMessage,
+    UserEntity? userData,
+  }) {
     return InitialUiState(
       isLoading: isLoading ?? this.isLoading,
       userMessage: userMessage ?? this.userMessage,
+      userData: userData ?? this.userData,
     );
   }
 }

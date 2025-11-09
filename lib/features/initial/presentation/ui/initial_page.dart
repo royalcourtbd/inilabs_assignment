@@ -46,6 +46,7 @@ class InitialPage extends StatelessWidget {
                   title: 'Search Repo',
                   textColor: Colors.white,
                   buttonColor: Theme.of(context).primaryColor,
+                  onTap: () => initialPagePresenter.searchUser(),
                 ),
               ],
             ),
