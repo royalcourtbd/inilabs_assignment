@@ -19,6 +19,7 @@ import 'package:inilabs_assignment/core/base/base_presenter.dart';
 import 'package:inilabs_assignment/core/di/setup/service_setup.dart';
 import 'package:inilabs_assignment/features/initial/di/initial_di.dart';
 import 'package:inilabs_assignment/features/home/di/home_di.dart';
+import 'package:inilabs_assignment/features/repository_details/di/repository_details_di.dart';
 
 final GetIt _serviceLocator = GetIt.instance;
 
@@ -65,6 +66,7 @@ class ServiceLocator {
     await InitialDi.setup(_serviceLocator);
 
     //Feature DI setup
+    await RepositoryDetailsDi.setup(_serviceLocator);
     await HomeDi.setup(_serviceLocator);
   }
 }
