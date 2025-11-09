@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:inilabs_assignment/core/di/setup/setup_module.dart';
 import 'package:inilabs_assignment/core/network/api_client.dart';
 import 'package:inilabs_assignment/core/services/error_message_handler.dart';
+import 'package:inilabs_assignment/core/services/theme_service.dart';
 
 class ServiceSetup implements SetupModule {
   final GetIt _serviceLocator;
@@ -16,5 +17,8 @@ class ServiceSetup implements SetupModule {
     _serviceLocator.registerLazySingleton<ErrorMessageHandler>(
       ErrorMessageHandlerImpl.new,
     );
+
+    // Register Theme Service
+    _serviceLocator.registerLazySingleton<ThemeService>(() => ThemeService());
   }
 }

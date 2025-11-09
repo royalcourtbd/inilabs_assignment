@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:inilabs_assignment/core/config/app_screen.dart';
+import 'package:inilabs_assignment/core/config/app_theme.dart';
+import 'package:inilabs_assignment/core/di/service_locator.dart';
+import 'package:inilabs_assignment/core/services/theme_service.dart';
 import 'package:inilabs_assignment/features/initial/presentation/ui/initial_page.dart';
 
 class InilabsApp extends StatelessWidget {
@@ -14,6 +17,7 @@ class InilabsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeService themeService = locate<ThemeService>();
     return GetMaterialApp(
       navigatorKey: navigatorKey,
       builder: (context, child) {
@@ -24,8 +28,11 @@ class InilabsApp extends StatelessWidget {
       onInit: () => AppScreen.setUp(context),
       onReady: () => AppScreen.setUp(context),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      title: 'Initial Project',
+
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: themeService.themeMode,
+      title: 'Inilabs Assignment',
       home: InitialPage(),
     );
   }
