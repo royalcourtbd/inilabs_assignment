@@ -20,7 +20,7 @@ class InitialPage extends StatelessWidget {
       builder: () {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Search Repository'),
+            title: Text('Search GitHub User'),
             actions: [
               AppSwitch(
                 initialValue: initialPagePresenter.themePresenter.isDarkMode,
@@ -39,11 +39,11 @@ class InitialPage extends StatelessWidget {
                   textEditingController:
                       initialPagePresenter.textEditingController,
                   prefixIconPath: SvgPath.icSearch,
-                  hintText: 'Enter repository User name',
+                  hintText: 'Enter github username',
                 ),
                 gapH20,
                 SubmitButton(
-                  title: 'Search Repo',
+                  title: 'Search User',
                   textColor: Colors.white,
                   buttonColor: Theme.of(context).primaryColor,
                   onTap: () => initialPagePresenter.searchUser(),
